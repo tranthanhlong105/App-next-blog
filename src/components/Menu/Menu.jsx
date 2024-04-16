@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import MenuPosts from '../menuPosts/MenuPosts'
 import MenuCategories from '../menuCategories/MenuCategories'
+//import MenuCategories from '../menuCategories/MenuCategories' 
 
 const Menu = () => {
     return (
