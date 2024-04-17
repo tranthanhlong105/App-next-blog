@@ -16,17 +16,17 @@ const getData = async (page) => {
   return res.json();
 };
 const CardList = async ({ page }) => {
-  const data = await getData(page);
+  const {post} = await getData(page);
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recents Post</h1>
       <div className={styles.posts}>
-        {/* {data?.map((item) => (
+        {post?.map((item) => (
           <Card item={item} key={item._id} />
-        ))} */}
-        <Card/>
+        ))}
+
       </div>
-      <Pagination />
+      <Pagination page={page}/>
     </div>
   );
 };

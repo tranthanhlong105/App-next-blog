@@ -11,7 +11,7 @@ export const GET = async (req) => {
       take: POST_PER_PAGE,
       skip: POST_PER_PAGE * (page - 1),
     });
-    return new NextResponse(JSON.stringify(category, { status: 200 }));
+    return new NextResponse(JSON.stringify(posts, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(

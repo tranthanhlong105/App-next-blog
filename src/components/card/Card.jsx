@@ -3,7 +3,7 @@ import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({ key,item }) => {
+const Card = ({ key, item }) => {
   return (
     <div className={styles.container} key={key}>
       <div className={styles.imageContainer}>
@@ -15,7 +15,7 @@ const Card = ({ key,item }) => {
           <span className={styles.category}> - CULTURE</span>
         </div>
         <Link href="/">
-          {/* <h1>{item.title}</h1> */}
+          <h1>{item.title}</h1>
         </Link>
         <p className={styles.desc}>
           Khởi đầu với triết lý lấy độc giả làm trung tâm, 23 năm qua, VnExpress
