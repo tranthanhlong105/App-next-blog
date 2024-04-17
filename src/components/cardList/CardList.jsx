@@ -22,7 +22,7 @@ const CardList = async ({ page }) => {
       <h1 className={styles.title}>Recents Post</h1>
       <div className={styles.posts}>
         {/* {data?.map((item) => (
-          <Car item={item} key={item._id} />
+          <Card item={item} key={item._id} />
         ))} */}
         <Card/>
       </div>
