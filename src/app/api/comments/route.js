@@ -1,36 +1,89 @@
+// import prisma from "@/utils/connnect";
+// import { NextResponse } from "next/server";
+// import { getAuthSession } from "@/utils/auth";
+
+
+
+
+// //get all comment of a post
+// export const GET = async (req) => {
+//   const { searchParams } = new URL(req.url);
+
+//   // console.log(searchParams)
+//   const postSlug = searchParams.get("postSlug");
+
+//   try {
+//     const comments = await prisma.post.finMany({
+//       where: {
+//         ...(postSlug && { postSlug }),
+//       },
+//       include: { user: true },
+//     });
+
+//     return new NextResponse(JSON.stringify({ comments }, { status: 200 }));
+//   } catch (err) {
+//     // console.log(err);
+//     return new NextResponse(
+//       JSON.stringify({ message: "something  went wrong" }, { status: 500 })
+//     );
+//   }
+// };
+
+
+// //creayte a moment
+// export const POST = async (req) => {
+//   const session = await getAuthSession();
+
+//   if (!session) {
+//     return new NextResponse(
+//       JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+//     );
+//   }
+
+//   try {
+//     const body = await req.json();
+//     const comment = await prisma.comment.create({
+//       data: { ...body, userEmail: session.user.email },
+//     });
+
+//     return new NextResponse(JSON.stringify(comment, { status: 200 }));
+//   } catch (err) {
+//     console.log(err);
+//     return new NextResponse(
+//       JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+//     );
+//   }
+// };
+
+
+import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connnect";
 import { NextResponse } from "next/server";
-import { getAuthSession } from "@/utils/auth";
 
-
-
-
-//get all comment of a post
+// GET ALL COMMENTS OF A POST
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
 
-  // console.log(searchParams)
   const postSlug = searchParams.get("postSlug");
 
   try {
-    const comments = await prisma.post.finMany({
+    const comments = await prisma.comment.findMany({
       where: {
         ...(postSlug && { postSlug }),
       },
       include: { user: true },
     });
 
-    return new NextResponse(JSON.stringify({ comments }, { status: 200 }));
+    return new NextResponse(JSON.stringify(comments, { status: 200 }));
   } catch (err) {
     // console.log(err);
     return new NextResponse(
-      JSON.stringify({ message: "something  went wrong" }, { status: 500 })
+      JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
     );
   }
 };
 
-
-//creayte a moment
+// CREATE A COMMENT
 export const POST = async (req) => {
   const session = await getAuthSession();
 
