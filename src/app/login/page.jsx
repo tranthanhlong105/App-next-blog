@@ -5,16 +5,16 @@ import styles from "./loginPage.module.css";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  // const { data, status } = useSession();
+  const { status } = useSession();
   
-  // const router = useRouter()
+  const router = useRouter()
 
-  // if(status === "loading"){
-  //   return <div className={styles.loading}>Loading...</div>
-  // }
-  // if(status === "authenticated"){
-  //   router.push("/")
-  // }
+  if(status === "loading"){
+    return <div className={styles.loading}>Loading...</div>
+  }
+  if(status === "authenticated"){
+    router.push("/")
+  }
 
   return (
     <div className={styles.container}>

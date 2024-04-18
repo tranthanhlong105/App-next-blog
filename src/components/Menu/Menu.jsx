@@ -1,28 +1,27 @@
-import React from 'react'
-import styles from "./menu.module.css"
-import Link from 'next/link'
-import Image from 'next/image'
-import MenuPosts from '../menuPosts/MenuPosts'
-import MenuCategories from '../menuCategories/MenuCategories'
-//import MenuCategories from '../menuCategories/MenuCategories' 
+import React from "react";
+import styles from "./menu.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import MenuPosts from "../menuPosts/MenuPosts";
+import MenuCategories from "../menuCategories/MenuCategories";
+//import MenuCategories from '../menuCategories/MenuCategories'
 
 const Menu = () => {
-    return (
-        <div className={styles.container}>
-            <h2 className={styles.subtitle}>{"What's hot"}</h2>
-            <h1 className={styles.title}>Most Popular</h1>
-            <MenuPosts withImage={ false} />
+  return (
+    <div className={styles.container}>
+      <h2 className={styles.subtitle}>{"What's hot"}</h2>
+      <h1 className={styles.title}>Most Popular</h1>
+      <MenuPosts withImage={false} />
 
+      <h2 className={styles.subtitle}>Discover by topic</h2>
+      <h1 className={styles.title}>Category</h1>
+      <MenuCategories />
 
-            <h2 className={styles.subtitle}>Discover by topic</h2>
-            <h1 className={styles.title}>Category</h1>
-            <MenuCategories />
+      <h2 className={styles.subtitle}>Chosen by editer</h2>
+      <h1 className={styles.title}>Editers Pick</h1>
+      <MenuPosts withImage={true} />
+    </div>
+  );
+};
 
-            <h2 className={styles.subtitle}>Chosen by editer</h2>
-            <h1 className={styles.title}>Editers Pick</h1>
-            <MenuPosts withImage={ true} />
-        </div >
-    )
-}
-
-export default Menu
+export default Menu;

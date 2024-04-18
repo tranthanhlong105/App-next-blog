@@ -1,14 +1,19 @@
 import prisma from "@/utils/connnect";
 import { NextResponse } from "next/server";
+import { getAuthSession } from "@/utils/auth";
 
+
+
+
+//get all comment of a post
 export const GET = async (req) => {
-  const { searchPagrams } = new URL(req.url);
+  const { searchParams } = new URL(req.url);
 
-  console.log(searchPagrams)
-  const postSlug = searchPagrams.get("postSlug");
+  // console.log(searchParams)
+  const postSlug = searchParams.get("postSlug");
 
   try {
-    const comments = await prisma.post.findUnique({
+    const comments = await prisma.post.finMany({
       where: {
         ...(postSlug && { postSlug }),
       },
@@ -24,6 +29,8 @@ export const GET = async (req) => {
   }
 };
 
+
+//creayte a moment
 export const POST = async (req) => {
   const session = await getAuthSession();
 

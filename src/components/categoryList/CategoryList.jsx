@@ -3,9 +3,11 @@ import styles from "./categoryList.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const cacheSize = 5; // Kích thước của cache
 
-// Mảng để lưu trữ các nội dung mới nhất
+//size of cache
+const cacheSize = 5; 
+
+// array strage cache first new
 const latestContentsCache = [];
 
 const getData = async () => {
@@ -34,7 +36,7 @@ const CategoryList = async () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Popular Category</h1>
+      <h1 className={styles.title}>Popular Categories</h1>
       <div className={styles.categories}>
         {data?.map((item) => (
           <Link

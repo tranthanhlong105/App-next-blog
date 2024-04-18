@@ -1,6 +1,7 @@
 import prisma from "@/utils/connnect";
 import { NextResponse } from "next/server";
 
+//get sin post
 export const GET = async (req, { params }) => {
   const { slug } = params;
 
@@ -10,6 +11,7 @@ export const GET = async (req, { params }) => {
       data: { view: { increment: 1 } },
       include: { user: true },
     });
+ 
 
     return new NextResponse(JSON.stringify({ post, count }, { status: 200 }));
   } catch (err) {
