@@ -18,15 +18,15 @@ const getData = async () => {
   }
 
   return res.json();
-  // Thêm nội dung mới nhất vào đầu mảng
-  latestContentsCache.unshift(data);
 
-  // Giữ cho kích thước của mảng nhỏ hơn hoặc bằng cacheSize
-  if (latestContentsCache.length > cacheSize) {
-    latestContentsCache.pop(); // Xóa phần tử cuối cùng của mảng
-  }
+  // latestContentsCache.unshift(data);
 
-  return latestContentsCache;
+  
+  // if (latestContentsCache.length > cacheSize) {
+  //   latestContentsCache.pop(); 
+  // }
+
+  // return latestContentsCache;
 };
 
 const CategoryList = async () => {
