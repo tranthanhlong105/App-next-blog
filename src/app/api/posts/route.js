@@ -33,8 +33,6 @@
 //   }
 // };
 
-
-
 import { getAuthSession } from "@/utils/auth";
 import prisma from "@/utils/connnect";
 import { NextResponse } from "next/server";
@@ -45,23 +43,17 @@ export const GET = async (req) => {
   const page = searchParams.get("page");
   const cat = searchParams.get("cat");
 
-  const POST_PER_PAGE = 3;
+  const POST_PER_PAGE = 4;
 
   const query = {
     take: POST_PER_PAGE,
-    skip: POST_PER_PAGE * (page),
+    skip: POST_PER_PAGE * (page - 1),
+
     where: {
       ...(cat && { catSlug: cat }),
     },
   };
 
-
-
-
-
-
-  
-  
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
