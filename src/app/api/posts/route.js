@@ -1,6 +1,4 @@
-// import { getAuthSession } from "@/utils/auth";
-// import prisma from "@/utils/connnect";
-// import { NextResponse } from "next/server";
+
 
 // export const GET = async (req) => {
 //   const { searchParams } = new URL(req.url);
